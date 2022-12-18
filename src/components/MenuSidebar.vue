@@ -45,7 +45,7 @@
             </div>
           </div>
         </div>
-        <router-link to="/" @click.native="window.location.reload()">
+        <router-link to="/">
           <i v-if="isExitButton" @click="isClosed;" class="bx bx-log-out" id="log_out"/>
         </router-link>
         

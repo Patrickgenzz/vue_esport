@@ -5,6 +5,7 @@
             <div class="text">
                 <h1>Member</h1> 
             </div>
+            <hr>
             <v-row>
                 <v-data-table :headers="headers" :items="users" :search="search">
                     <template v-slot:[`item.division`]="{ item }">

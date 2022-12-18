@@ -2,7 +2,7 @@
     <div id="background">
         <div class="registerCard">
             <h1 class="titleText">REGISTER</h1>
-            <v-form ref="form" v-model="valid" @submit.prevent="register" multiple>
+            <v-form ref="form" v-model="valid">
                 <v-container class="formRegister">
                     <v-text-field v-model="formInput.name" label="Nama Lengkap" color="purple" solo required></v-text-field>
                     <v-text-field v-model="formInput.nickname" label="Nickname" color="purple" solo required></v-text-field>
@@ -49,9 +49,10 @@ export default {
                 nohp: null,
                 email : null,
                 password : null,
-                divisi : null,
+                divisi: [],
                 pasphoto : null,
             }, 
+            
         }
     },
     setup() {
@@ -73,8 +74,12 @@ export default {
     },
 
     methods:{
-       register() {
-            axios.post(route+ 'register', this.formInput)
+        register() {
+            axios.post(route + 'register', this.formInput, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
             .then(response => {
                 console.log(response);
 

@@ -5,6 +5,7 @@
             <div class="text">
                 <h1>Edit Profile</h1>   
             </div>
+            <hr>
             <v-row>
               <v-col>
                 <v-text-field v-model="this.name" readonly label="Name" type="text" prepend-icon="bx bx-user"></v-text-field>
