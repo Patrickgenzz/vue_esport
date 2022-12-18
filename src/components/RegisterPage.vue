@@ -36,8 +36,9 @@
 
 <script>
 import axios from "axios";
-import * as api from "./repository/firebaseAPI";
 import { ref, onMounted } from 'vue';
+
+const route = "https://store.ksaduajy.com/laravel_esport/api/";
 
 export default {
     data() {
@@ -57,7 +58,7 @@ export default {
         const divisis = ref([])
 
         onMounted(() => {
-            axios.get(api.BaseRoute + 'divisis')
+            axios.get(route + 'divisis')
             .then(response => {
                 divisis.value = response.data.data;
             }).catch(error => {
@@ -73,7 +74,7 @@ export default {
 
     methods:{
        register() {
-            axios.post(api.BaseRoute + 'register', this.formInput)
+            axios.post(route+ 'register', this.formInput)
             .then(response => {
                 console.log(response);
 

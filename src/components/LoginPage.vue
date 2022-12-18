@@ -45,8 +45,10 @@
 
 <script>
 import axios from "axios";
-import * as cookiesHandle from "./repository/cookiesHandle";
-import * as api from "./repository/firebaseAPI";
+import * as deleteCookies from "../deleteCookies";
+import { useToast } from "vue-toastification";
+
+const route = "https://store.ksaduajy.com/laravel_esport/api/";
 
 export default {
   data() {
@@ -57,19 +59,29 @@ export default {
       },
     };
   },
+  setup() {
+    const toast = useToast();
+
+    return {
+      toast,
+    };
+  },
   methods:{
     login() {
-      axios.post(api.BaseRoute + 'login', this.formInput)
+      
+      axios.post(route + 'login', this.formInput)
       .then(response => {
         console.log(response);
 
         //delete token
-        cookiesHandle.deleteAllCookies();  
-        cookiesHandle.setCookies("token", response.data.access_token, 30);
+        deleteCookies.deleteAllCookies();  
+        deleteCookies.setCookies("token", response.data.access_token, 30);
         console.log(response.data.access_token);
-                    
+       
         this.$router.push({ name: 'Dashboard' });
-        // this.switchPage(response.data.user.idRole);                
+        //toast
+        this.toast.success("Login Success");
+        this.switchPage(response.data.user.role && response.data.user.role.id);                
       }).catch(error => {
         console.log(error);            
       });

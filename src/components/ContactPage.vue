@@ -2,7 +2,7 @@
     <div id="background">
         <div class="container">
             <h1 class="titleText">CONTACT US</h1>
-            <v-container class="card" style="padding-left: 40px;">
+            <v-container class="card bg-transparent" style="padding-left: 40px;">
                 <v-row>
                     <v-col v-for="image in images" :key="image.title" style="padding: 5px; padding-top: 20px;" class="colCard">
                         <v-card class="mx-auto" width="275" color="purple darken-4">

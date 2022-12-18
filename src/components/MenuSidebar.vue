@@ -45,8 +45,8 @@
             </div>
           </div>
         </div>
-        <router-link to="/">
-          <i v-if="isExitButton" @click="isClosed();" class="bx bx-log-out" id="log_out"/>
+        <router-link to="/" @click.native="window.location.reload()">
+          <i v-if="isExitButton" @click="isClosed;" class="bx bx-log-out" id="log_out"/>
         </router-link>
         
       </div>
@@ -61,8 +61,7 @@
 </template>
 
 <script>
-// import Sidebar from '@/components/sidebar/SidebarLayout'
-// import { sidebarWidth } from '@/components/sidebar/state'
+
 export default {
     name: 'SidebarMenu',
     props: {
@@ -138,14 +137,14 @@ export default {
         type: String,
         default: 'Search',
       },
-      //! Profile detailes
-      // profileImg: {
-      //   type: String,
-      //   default: require('../assets/img/photo.jpg'),
-      // },
+      // ! Profile detailes
+      profileImg: {
+        type: String,
+        default: require('../assets/logo.png'),
+      },
       profileName: {
         type: String,
-        default: 'Username',
+        default: 'ESPORT',
       },
       profileRole: {
         type: String,
@@ -235,8 +234,7 @@ export default {
     },
     method: {
       isClosed() {
-        //reload force to close menu
-        window.location.reload()
+        location.reload();
       }
     },
   }

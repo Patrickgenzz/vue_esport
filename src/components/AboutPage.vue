@@ -2,7 +2,7 @@
     <div id="background">
         <div class="container">
             <h1 class="titleText">ABOUT FOUR KINGS</h1>
-            <v-container class="card">
+            <v-container class="card bg-transparent">
                 <v-row>
                     <v-col cols="4">
                         <img src="../assets/logo.png" style="
